@@ -7,4 +7,4 @@ A ideia principal é ter um arquivo só (tabela.html) e usar css e javascript in
 ## Créditos
 
 * DiogoHSS
-* João
+* João (aka as Luís(aka aka as Baiano(aka as Tiago)))
