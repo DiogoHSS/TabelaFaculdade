@@ -118,14 +118,35 @@
         .botao_editar {
             float: right;
             align-items: center;
-            background: d4d4d6;
-            color: #111014;
+            background: #d4d4d6;
+            color: #111014; /* TODO fix padding */
             padding-left: 6px;
             padding-right: 6px;
             border-radius: 14px;
-            font-size: 24px;
+            font-size: 22px;
             cursor: pointer;
             display: inline-flex;
+        }
+        .barra_lateral {
+            width: 100vmin;
+            background: #d4d4d6;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            height: 100%;
+            overflow: auto;
+            display: none;
+        }
+        .incelula {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            border: 0;
+            cursor: pointer;
+            display: flex;
         }
     </style>
 </head>
@@ -154,213 +175,221 @@
                     <tr id="m1">
                         <th id="tempo">M1 <span class="tempo_do_tempo">(07:00 - 07:50)</span></th>
         
-                        <td id="seg_m1" class="celula" contenteditable="false"></td>
-                        <td id="ter_m1" class="celula" contenteditable="false"></td>
-                        <td id="qua_m1" class="celula" contenteditable="false"></td>
-                        <td id="qui_m1" class="celula" contenteditable="false"></td>
-                        <td id="sex_m1" class="celula" contenteditable="false"></td>
-                        <td id="sab_m1" class="celula" contenteditable="false"></td>
-                        <td id="dom_m1" class="celula" contenteditable="false"></td>
+                        <td id="seg_m1" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="ter_m1" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qua_m1" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qui_m1" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sex_m1" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sab_m1" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="dom_m1" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
                     </tr>
                     <tr id="m2">
                         <th id="tempo">M2 <span class="tempo_do_tempo">(07:50 - 08:40)</span></th>
         
-                        <td id="seg_m2" class="celula" contenteditable="false"></td>
-                        <td id="ter_m2" class="celula" contenteditable="false"></td>
-                        <td id="qua_m2" class="celula" contenteditable="false"></td>
-                        <td id="qui_m2" class="celula" contenteditable="false"></td>
-                        <td id="sex_m2" class="celula" contenteditable="false"></td>
-                        <td id="sab_m2" class="celula" contenteditable="false"></td>
-                        <td id="dom_m2" class="celula" contenteditable="false"></td>
+                        <td id="seg_m2" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="ter_m2" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qua_m2" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qui_m2" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sex_m2" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sab_m2" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="dom_m2" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
                     </tr>
                     <tr id="m3">
                         <th id="tempo">M3 <span class="tempo_do_tempo">(08:50 - 09:40)</span></th>
         
-                        <td id="seg_m3" class="celula" contenteditable="false"></td>
-                        <td id="ter_m3" class="celula" contenteditable="false"></td>
-                        <td id="qua_m3" class="celula" contenteditable="false"></td>
-                        <td id="qui_m3" class="celula" contenteditable="false"></td>
-                        <td id="sex_m3" class="celula" contenteditable="false"></td>
-                        <td id="sab_m3" class="celula" contenteditable="false"></td>
-                        <td id="dom_m3" class="celula" contenteditable="false"></td>
+                        <td id="seg_m3" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="ter_m3" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qua_m3" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qui_m3" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sex_m3" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sab_m3" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="dom_m3" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
                     </tr>
                     <tr id="m4">
                         <th id="tempo">M4 <span class="tempo_do_tempo">(09:40 - 10:30)</span></th>
         
-                        <td id="seg_m4" class="celula" contenteditable="false"></td>
-                        <td id="ter_m4" class="celula" contenteditable="false"></td>
-                        <td id="qua_m4" class="celula" contenteditable="false"></td>
-                        <td id="qui_m4" class="celula" contenteditable="false"></td>
-                        <td id="sex_m4" class="celula" contenteditable="false"></td>
-                        <td id="sab_m4" class="celula" contenteditable="false"></td>
-                        <td id="dom_m4" class="celula" contenteditable="false"></td>
+                        <td id="seg_m4" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="ter_m4" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qua_m4" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qui_m4" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sex_m4" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sab_m4" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="dom_m4" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
                     </tr>
                     <tr id="m5">
                         <th id="tempo">M5 <span class="tempo_do_tempo">(10:40 - 11:30)</span></th>
         
-                        <td id="seg_m5" class="celula" contenteditable="false"></td>
-                        <td id="ter_m5" class="celula" contenteditable="false"></td>
-                        <td id="qua_m5" class="celula" contenteditable="false"></td>
-                        <td id="qui_m5" class="celula" contenteditable="false"></td>
-                        <td id="sex_m5" class="celula" contenteditable="false"></td>
-                        <td id="sab_m5" class="celula" contenteditable="false"></td>
-                        <td id="dom_m5" class="celula" contenteditable="false"></td>
+                        <td id="seg_m5" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="ter_m5" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qua_m5" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qui_m5" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sex_m5" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sab_m5" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="dom_m5" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
                     </tr>
                     <tr id="m6">
                         <th id="tempo">M6 <span class="tempo_do_tempo">(11:30 - 12:20)</span></th>
         
-                        <td id="seg_m6" class="celula" contenteditable="false"></td>
-                        <td id="ter_m6" class="celula" contenteditable="false"></td>
-                        <td id="qua_m6" class="celula" contenteditable="false"></td>
-                        <td id="qui_m6" class="celula" contenteditable="false"></td>
-                        <td id="sex_m6" class="celula" contenteditable="false"></td>
-                        <td id="sab_m6" class="celula" contenteditable="false"></td>
-                        <td id="dom_m6" class="celula" contenteditable="false"></td>
+                        <td id="seg_m6" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="ter_m6" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qua_m6" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qui_m6" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sex_m6" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sab_m6" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="dom_m6" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
                     </tr>
                     <tr id="t1">
                         <th id="tempo">T1 <span class="tempo_do_tempo">(12:30 - 13:20)</span></th>
         
-                        <td id="seg_t1" class="celula" contenteditable="false"></td>
-                        <td id="ter_t1" class="celula" contenteditable="false"></td>
-                        <td id="qua_t1" class="celula" contenteditable="false"></td>
-                        <td id="qui_t1" class="celula" contenteditable="false"></td>
-                        <td id="sex_t1" class="celula" contenteditable="false"></td>
-                        <td id="sab_t1" class="celula" contenteditable="false"></td>
-                        <td id="dom_t1" class="celula" contenteditable="false"></td>
+                        <td id="seg_t1" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="ter_t1" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qua_t1" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qui_t1" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sex_t1" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sab_t1" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="dom_t1" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
                     </tr>
                     <tr id="t2">
                         <th id="tempo">T2 <span class="tempo_do_tempo">(13:20 - 14:10)</span></th>
         
-                        <td id="seg_t2" class="celula" contenteditable="false"></td>
-                        <td id="ter_t2" class="celula" contenteditable="false"></td>
-                        <td id="qua_t2" class="celula" contenteditable="false"></td>
-                        <td id="qui_t2" class="celula" contenteditable="false"></td>
-                        <td id="sex_t2" class="celula" contenteditable="false"></td>
-                        <td id="sab_t2" class="celula" contenteditable="false"></td>
-                        <td id="dom_t2" class="celula" contenteditable="false"></td>
+                        <td id="seg_t2" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="ter_t2" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qua_t2" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qui_t2" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sex_t2" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sab_t2" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="dom_t2" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
                     </tr>
                     <tr id="t3">
                         <th id="tempo">T3 <span class="tempo_do_tempo">(14:20 - 15:10)</span></th>
         
-                        <td id="seg_t3" class="celula" contenteditable="false"></td>
-                        <td id="ter_t3" class="celula" contenteditable="false"></td>
-                        <td id="qua_t3" class="celula" contenteditable="false"></td>
-                        <td id="qui_t3" class="celula" contenteditable="false"></td>
-                        <td id="sex_t3" class="celula" contenteditable="false"></td>
-                        <td id="sab_t3" class="celula" contenteditable="false"></td>
-                        <td id="dom_t3" class="celula" contenteditable="false"></td>
+                        <td id="seg_t3" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="ter_t3" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qua_t3" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qui_t3" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sex_t3" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sab_t3" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="dom_t3" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
                     </tr>
                     <tr id="t4">
                         <th id="tempo">T4 <span class="tempo_do_tempo">(15:10 - 16:00)</span></th>
         
-                        <td id="seg_t4" class="celula" contenteditable="false"></td>
-                        <td id="ter_t4" class="celula" contenteditable="false"></td>
-                        <td id="qua_t4" class="celula" contenteditable="false"></td>
-                        <td id="qui_t4" class="celula" contenteditable="false"></td>
-                        <td id="sex_t4" class="celula" contenteditable="false"></td>
-                        <td id="sab_t4" class="celula" contenteditable="false"></td>
-                        <td id="dom_t4" class="celula" contenteditable="false"></td>
+                        <td id="seg_t4" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="ter_t4" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qua_t4" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qui_t4" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sex_t4" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sab_t4" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="dom_t4" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
                     </tr>
                     <tr id="t5">
                         <th id="tempo">T5 <span class="tempo_do_tempo">(16:10 - 17:00)</span></th>
         
-                        <td id="seg_t5" class="celula" contenteditable="false"></td>
-                        <td id="ter_t5" class="celula" contenteditable="false"></td>
-                        <td id="qua_t5" class="celula" contenteditable="false"></td>
-                        <td id="qui_t5" class="celula" contenteditable="false"></td>
-                        <td id="sex_t5" class="celula" contenteditable="false"></td>
-                        <td id="sab_t5" class="celula" contenteditable="false"></td>
-                        <td id="dom_t5" class="celula" contenteditable="false"></td>
+                        <td id="seg_t5" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="ter_t5" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qua_t5" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qui_t5" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sex_t5" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sab_t5" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="dom_t5" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
                     </tr>
                     <tr id="t6">
                         <th id="tempo">T6 <span class="tempo_do_tempo">(17:00 - 17:50)</span></th>
         
-                        <td id="seg_t6" class="celula" contenteditable="false"></td>
-                        <td id="ter_t6" class="celula" contenteditable="false"></td>
-                        <td id="qua_t6" class="celula" contenteditable="false"></td>
-                        <td id="qui_t6" class="celula" contenteditable="false"></td>
-                        <td id="sex_t6" class="celula" contenteditable="false"></td>
-                        <td id="sab_t6" class="celula" contenteditable="false"></td>
-                        <td id="dom_t6" class="celula" contenteditable="false"></td>
+                        <td id="seg_t6" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="ter_t6" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qua_t6" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qui_t6" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sex_t6" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sab_t6" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="dom_t6" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
                     </tr>
                     <tr id="n1">
                         <th id="tempo">N1 <span class="tempo_do_tempo">(18:00 - 18:45)</span></th>
         
-                        <td id="seg_n1" class="celula" contenteditable="false"></td>
-                        <td id="ter_n1" class="celula" contenteditable="false"></td>
-                        <td id="qua_n1" class="celula" contenteditable="false"></td>
-                        <td id="qui_n1" class="celula" contenteditable="false"></td>
-                        <td id="sex_n1" class="celula" contenteditable="false"></td>
-                        <td id="sab_n1" class="celula" contenteditable="false"></td>
-                        <td id="dom_n1" class="celula" contenteditable="false"></td>
+                        <td id="seg_n1" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="ter_n1" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qua_n1" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qui_n1" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sex_n1" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sab_n1" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="dom_n1" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
                     </tr>
                     <tr id="n2">
                         <th id="tempo">N2 <span class="tempo_do_tempo">(18:45 - 19:30)</span></th>
         
-                        <td id="seg_n2" class="celula" contenteditable="false"></td>
-                        <td id="ter_n2" class="celula" contenteditable="false"></td>
-                        <td id="qua_n2" class="celula" contenteditable="false"></td>
-                        <td id="qui_n2" class="celula" contenteditable="false"></td>
-                        <td id="sex_n2" class="celula" contenteditable="false"></td>
-                        <td id="sab_n2" class="celula" contenteditable="false"></td>
-                        <td id="dom_n2" class="celula" contenteditable="false"></td>
+                        <td id="seg_n2" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="ter_n2" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qua_n2" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qui_n2" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sex_n2" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sab_n2" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="dom_n2" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
                     </tr>
                     <tr id="n3">
                         <th id="tempo">N3 <span class="tempo_do_tempo">(19:35 - 20:20)</span></th>
         
-                        <td id="seg_n3" class="celula" contenteditable="false"></td>
-                        <td id="ter_n3" class="celula" contenteditable="false"></td>
-                        <td id="qua_n3" class="celula" contenteditable="false"></td>
-                        <td id="qui_n3" class="celula" contenteditable="false"></td>
-                        <td id="sex_n3" class="celula" contenteditable="false"></td>
-                        <td id="sab_n3" class="celula" contenteditable="false"></td>
-                        <td id="dom_n3" class="celula" contenteditable="false"></td>
+                        <td id="seg_n3" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="ter_n3" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qua_n3" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qui_n3" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sex_n3" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sab_n3" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="dom_n3" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
                     </tr>
                     <tr id="n4">
                         <th id="tempo">N4 <span class="tempo_do_tempo">(20:20 - 21:05)</span></th>
         
-                        <td id="seg_n4" class="celula" contenteditable="false"></td>
-                        <td id="ter_n4" class="celula" contenteditable="false"></td>
-                        <td id="qua_n4" class="celula" contenteditable="false"></td>
-                        <td id="qui_n4" class="celula" contenteditable="false"></td>
-                        <td id="sex_n4" class="celula" contenteditable="false"></td>
-                        <td id="sab_n4" class="celula" contenteditable="false"></td>
-                        <td id="dom_n4" class="celula" contenteditable="false"></td>
+                        <td id="seg_n4" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="ter_n4" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qua_n4" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qui_n4" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sex_n4" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sab_n4" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="dom_n4" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
                     </tr>
                     <tr id="n5">
                         <th id="tempo">N5 <span class="tempo_do_tempo">(21:10 - 21:55)</span></th>
         
-                        <td id="seg_n5" class="celula" contenteditable="false"></td>
-                        <td id="ter_n5" class="celula" contenteditable="false"></td>
-                        <td id="qua_n5" class="celula" contenteditable="false"></td>
-                        <td id="qui_n5" class="celula" contenteditable="false"></td>
-                        <td id="sex_n5" class="celula" contenteditable="false"></td>
-                        <td id="sab_n5" class="celula" contenteditable="false"></td>
-                        <td id="dom_n5" class="celula" contenteditable="false"></td>
+                        <td id="seg_n5" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="ter_n5" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qua_n5" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qui_n5" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sex_n5" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sab_n5" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="dom_n5" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
                     </tr>
                     <tr id="n6">
                         <th id="tempo">N6 <span class="tempo_do_tempo">(21:55 - 22:40)</span></th>
         
-                        <td id="seg_n6" class="celula" contenteditable="false"></td>
-                        <td id="ter_n6" class="celula" contenteditable="false"></td>
-                        <td id="qua_n6" class="celula" contenteditable="false"></td>
-                        <td id="qui_n6" class="celula" contenteditable="false"></td>
-                        <td id="sex_n6" class="celula" contenteditable="false"></td>
-                        <td id="sab_n6" class="celula" contenteditable="false"></td>
-                        <td id="dom_n6" class="celula" contenteditable="false"></td>
+                        <td id="seg_n6" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="ter_n6" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qua_n6" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="qui_n6" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sex_n6" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="sab_n6" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
+                        <td id="dom_n6" class="celula" contenteditable="false"><button class="incelula" onclick="showLadinho()"></button></td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </main>
+    <div id="ladinho" class="barra_lateral">
+        <button id="fechar" class="botao_editar" onclick="closeLadinho()">X</button>
+    </div>
     <footer>
-            <button type="button" class="botao_fundo">APERTA</button>
-            <a onclick="save_tabela()">
+            <a onclick="saveTabela()">
                 <button id="salvar" class="botao_fundo">Salvar</button>
             </a>
     </footer>
     <script>
-        function save_tabela() {
+        function showLadinho() {
+            document.getElementById("ladinho").style.display = "block";
+        }
+        function closeLadinho() {
+            document.getElementById("ladinho").style.display = "none";
+        }
+        function saveTabela() {
             let arquivo = new window.Blob(["<!DOCTYPE html>\n<html lang=\"pt-br\">\n" + document.documentElement.innerHTML + "\n</html>"], {type: "text/html"});
             let url = window.webkitURL || window.URL;
 
@@ -375,17 +404,25 @@
             document.body.removeChild(a);
         }
         function startEdit() {
+            document.getElementById("salvar").style.display = "none";
             document.getElementById("editor").innerHTML = "&#10060;";
             document.getElementById("editor").setAttribute("onclick", "stopEdit()");
             Array.from(document.getElementsByClassName("celula")).forEach(element => {
                 element.contentEditable = "true";
+            })
+            Array.from(document.getElementsByClassName("incelula")).forEach(element => {
+                element.style.display = "none";
             });
         }
         function stopEdit() {
+            document.getElementById("salvar").style.display = "inline-flex";
             document.getElementById("editor").innerHTML = "&#9999;";
             document.getElementById("editor").setAttribute("onclick", "startEdit()");
             Array.from(document.getElementsByClassName("celula")).forEach(element => {
                 element.contentEditable = "false";
+            });
+            Array.from(document.getElementsByClassName("incelula")).forEach(element => {
+                element.style.display = "flex";
             })
         }
     </script>
