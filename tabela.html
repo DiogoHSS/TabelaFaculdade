@@ -361,7 +361,7 @@
     </footer>
     <script>
         function save_tabela() {
-            let arquivo = new window.Blob(["<!DOCTYPE html>" + document.documentElement.innerHTML], {type: "text/html"});
+            let arquivo = new window.Blob(["<!DOCTYPE html>\n<html lang=\"pt-br\">\n" + document.documentElement.innerHTML + "\n</html>"], {type: "text/html"});
             let url = window.webkitURL || window.URL;
 
             let download = url.createObjectURL(arquivo);
