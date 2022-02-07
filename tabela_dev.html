@@ -127,11 +127,11 @@
             cursor: pointer;
             display: inline-flex;
         }
-        .barra_lateral {
+        .barra_lateral {          
             width: 100vmin;
             background: #d4d4d6;
             position: fixed;
-            z-index: 1;
+            z-index: 2;
             top: 0;
             right: 0;
             height: 100%;
@@ -143,7 +143,9 @@
             width: 100%;
             margin: 0;
             padding: 0;
-            background: transparent;
+            background: white;
+            z-index: 1;
+            float: center;
             border: 0;
             cursor: pointer;
             display: flex;
@@ -374,7 +376,7 @@
             </table>
         </div>
     </main>
-    <div id="ladinho" class="barra_lateral">
+    <div id="ladinho" class="barra_lateral"> <!-- TODO basicamente tudo -->
         <button id="fechar" class="botao_editar" onclick="closeLadinho()">X</button>
     </div>
     <footer>
