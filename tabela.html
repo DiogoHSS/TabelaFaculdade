@@ -70,6 +70,12 @@
             width: 120px;
             height: 2vw;
         }
+        input {
+            text-align: center;
+            border: 0;
+            background: transparent;
+            width: 90%;
+        }
         #m2, #m4, #m6, #t2, #t4, #t6, #n2, #n4, #n6 {
             background: #1f1e25;
         }
@@ -84,10 +90,10 @@
             align-items: right;
             justify-content: right;
         }
-        button {
+        .botao_fundo {
             margin: 2px;
             align-items: center;
-            background-color: #d4d4d6;
+            background: #d4d4d6;
             border-top-left-radius: 14px;
             border-top-right-radius: 14px;
             border-width: 0;
@@ -101,13 +107,25 @@
             padding-right: 12px;
             font-size: 20px;
         }
-        button:hover {
+        .botao_fundo:hover {
             box-shadow: 0 2px 2px 2px #151519;
             transform: translateY(-2px);
         }
-        button:active {
+        .botao_fundo:active {
             box-shadow: 0 2px 2px 2px inset #7f7f84;
             transform: translateY(2px);
+        }
+        .botao_editar {
+            float: right;
+            align-items: center;
+            background: d4d4d6;
+            color: #111014;
+            padding-left: 6px;
+            padding-right: 6px;
+            border-radius: 14px;
+            font-size: 24px;
+            cursor: pointer;
+            display: inline-flex;
         }
     </style>
 </head>
@@ -115,7 +133,10 @@
     <main>
         <div id="tabelinha">
             <table>
-                <caption>Quadro de Horários 2021.2</caption>
+                <caption>
+                    Quadro de Horários 2021.2
+                    <button id="editor" class="botao_editar" onclick="startEdit()">&#9999;</button>
+                </caption>
         
                 <thead>
                     <tr id="cabecalho">
@@ -133,210 +154,240 @@
                     <tr id="m1">
                         <th id="tempo">M1 <span class="tempo_do_tempo">(07:00 - 07:50)</span></th>
         
-                        <td id="seg_m1"></td>
-                        <td id="ter_m1"></td>
-                        <td id="qua_m1"></td>
-                        <td id="qui_m1"></td>
-                        <td id="sex_m1"></td>
-                        <td id="sab_m1"></td>
-                        <td id="dom_m1"></td>
+                        <td id="seg_m1" class="celula" contenteditable="false"></td>
+                        <td id="ter_m1" class="celula" contenteditable="false"></td>
+                        <td id="qua_m1" class="celula" contenteditable="false"></td>
+                        <td id="qui_m1" class="celula" contenteditable="false"></td>
+                        <td id="sex_m1" class="celula" contenteditable="false"></td>
+                        <td id="sab_m1" class="celula" contenteditable="false"></td>
+                        <td id="dom_m1" class="celula" contenteditable="false"></td>
                     </tr>
                     <tr id="m2">
                         <th id="tempo">M2 <span class="tempo_do_tempo">(07:50 - 08:40)</span></th>
         
-                        <td id="seg_m2"></td>
-                        <td id="ter_m2"></td>
-                        <td id="qua_m2"></td>
-                        <td id="qui_m2"></td>
-                        <td id="sex_m2"></td>
-                        <td id="sab_m2"></td>
-                        <td id="dom_m2"></td>
+                        <td id="seg_m2" class="celula" contenteditable="false"></td>
+                        <td id="ter_m2" class="celula" contenteditable="false"></td>
+                        <td id="qua_m2" class="celula" contenteditable="false"></td>
+                        <td id="qui_m2" class="celula" contenteditable="false"></td>
+                        <td id="sex_m2" class="celula" contenteditable="false"></td>
+                        <td id="sab_m2" class="celula" contenteditable="false"></td>
+                        <td id="dom_m2" class="celula" contenteditable="false"></td>
                     </tr>
                     <tr id="m3">
                         <th id="tempo">M3 <span class="tempo_do_tempo">(08:50 - 09:40)</span></th>
         
-                        <td id="seg_m3"></td>
-                        <td id="ter_m3"></td>
-                        <td id="qua_m3"></td>
-                        <td id="qui_m3"></td>
-                        <td id="sex_m3"></td>
-                        <td id="sab_m3"></td>
-                        <td id="dom_m3"></td>
+                        <td id="seg_m3" class="celula" contenteditable="false"></td>
+                        <td id="ter_m3" class="celula" contenteditable="false"></td>
+                        <td id="qua_m3" class="celula" contenteditable="false"></td>
+                        <td id="qui_m3" class="celula" contenteditable="false"></td>
+                        <td id="sex_m3" class="celula" contenteditable="false"></td>
+                        <td id="sab_m3" class="celula" contenteditable="false"></td>
+                        <td id="dom_m3" class="celula" contenteditable="false"></td>
                     </tr>
                     <tr id="m4">
                         <th id="tempo">M4 <span class="tempo_do_tempo">(09:40 - 10:30)</span></th>
         
-                        <td id="seg_m4"></td>
-                        <td id="ter_m4"></td>
-                        <td id="qua_m4"></td>
-                        <td id="qui_m4"></td>
-                        <td id="sex_m4"></td>
-                        <td id="sab_m4"></td>
-                        <td id="dom_m4"></td>
+                        <td id="seg_m4" class="celula" contenteditable="false"></td>
+                        <td id="ter_m4" class="celula" contenteditable="false"></td>
+                        <td id="qua_m4" class="celula" contenteditable="false"></td>
+                        <td id="qui_m4" class="celula" contenteditable="false"></td>
+                        <td id="sex_m4" class="celula" contenteditable="false"></td>
+                        <td id="sab_m4" class="celula" contenteditable="false"></td>
+                        <td id="dom_m4" class="celula" contenteditable="false"></td>
                     </tr>
                     <tr id="m5">
                         <th id="tempo">M5 <span class="tempo_do_tempo">(10:40 - 11:30)</span></th>
         
-                        <td id="seg_m5"></td>
-                        <td id="ter_m5"></td>
-                        <td id="qua_m5"></td>
-                        <td id="qui_m5"></td>
-                        <td id="sex_m5"></td>
-                        <td id="sab_m5"></td>
-                        <td id="dom_m5"></td>
+                        <td id="seg_m5" class="celula" contenteditable="false"></td>
+                        <td id="ter_m5" class="celula" contenteditable="false"></td>
+                        <td id="qua_m5" class="celula" contenteditable="false"></td>
+                        <td id="qui_m5" class="celula" contenteditable="false"></td>
+                        <td id="sex_m5" class="celula" contenteditable="false"></td>
+                        <td id="sab_m5" class="celula" contenteditable="false"></td>
+                        <td id="dom_m5" class="celula" contenteditable="false"></td>
                     </tr>
                     <tr id="m6">
                         <th id="tempo">M6 <span class="tempo_do_tempo">(11:30 - 12:20)</span></th>
         
-                        <td id="seg_m6"></td>
-                        <td id="ter_m6"></td>
-                        <td id="qua_m6"></td>
-                        <td id="qui_m6"></td>
-                        <td id="sex_m6"></td>
-                        <td id="sab_m6"></td>
-                        <td id="dom_m6"></td>
+                        <td id="seg_m6" class="celula" contenteditable="false"></td>
+                        <td id="ter_m6" class="celula" contenteditable="false"></td>
+                        <td id="qua_m6" class="celula" contenteditable="false"></td>
+                        <td id="qui_m6" class="celula" contenteditable="false"></td>
+                        <td id="sex_m6" class="celula" contenteditable="false"></td>
+                        <td id="sab_m6" class="celula" contenteditable="false"></td>
+                        <td id="dom_m6" class="celula" contenteditable="false"></td>
                     </tr>
                     <tr id="t1">
                         <th id="tempo">T1 <span class="tempo_do_tempo">(12:30 - 13:20)</span></th>
         
-                        <td id="seg_t1"></td>
-                        <td id="ter_t1"></td>
-                        <td id="qua_t1"></td>
-                        <td id="qui_t1"></td>
-                        <td id="sex_t1"></td>
-                        <td id="sab_t1"></td>
-                        <td id="dom_t1"></td>
+                        <td id="seg_t1" class="celula" contenteditable="false"></td>
+                        <td id="ter_t1" class="celula" contenteditable="false"></td>
+                        <td id="qua_t1" class="celula" contenteditable="false"></td>
+                        <td id="qui_t1" class="celula" contenteditable="false"></td>
+                        <td id="sex_t1" class="celula" contenteditable="false"></td>
+                        <td id="sab_t1" class="celula" contenteditable="false"></td>
+                        <td id="dom_t1" class="celula" contenteditable="false"></td>
                     </tr>
                     <tr id="t2">
                         <th id="tempo">T2 <span class="tempo_do_tempo">(13:20 - 14:10)</span></th>
         
-                        <td id="seg_t2"></td>
-                        <td id="ter_t2"></td>
-                        <td id="qua_t2"></td>
-                        <td id="qui_t2"></td>
-                        <td id="sex_t2"></td>
-                        <td id="sab_t2"></td>
-                        <td id="dom_t2"></td>
+                        <td id="seg_t2" class="celula" contenteditable="false"></td>
+                        <td id="ter_t2" class="celula" contenteditable="false"></td>
+                        <td id="qua_t2" class="celula" contenteditable="false"></td>
+                        <td id="qui_t2" class="celula" contenteditable="false"></td>
+                        <td id="sex_t2" class="celula" contenteditable="false"></td>
+                        <td id="sab_t2" class="celula" contenteditable="false"></td>
+                        <td id="dom_t2" class="celula" contenteditable="false"></td>
                     </tr>
                     <tr id="t3">
                         <th id="tempo">T3 <span class="tempo_do_tempo">(14:20 - 15:10)</span></th>
         
-                        <td id="seg_t3"></td>
-                        <td id="ter_t3"></td>
-                        <td id="qua_t3"></td>
-                        <td id="qui_t3"></td>
-                        <td id="sex_t3"></td>
-                        <td id="sab_t3"></td>
-                        <td id="dom_t3"></td>
+                        <td id="seg_t3" class="celula" contenteditable="false"></td>
+                        <td id="ter_t3" class="celula" contenteditable="false"></td>
+                        <td id="qua_t3" class="celula" contenteditable="false"></td>
+                        <td id="qui_t3" class="celula" contenteditable="false"></td>
+                        <td id="sex_t3" class="celula" contenteditable="false"></td>
+                        <td id="sab_t3" class="celula" contenteditable="false"></td>
+                        <td id="dom_t3" class="celula" contenteditable="false"></td>
                     </tr>
                     <tr id="t4">
                         <th id="tempo">T4 <span class="tempo_do_tempo">(15:10 - 16:00)</span></th>
         
-                        <td id="seg_t4"></td>
-                        <td id="ter_t4"></td>
-                        <td id="qua_t4"></td>
-                        <td id="qui_t4"></td>
-                        <td id="sex_t4"></td>
-                        <td id="sab_t4"></td>
-                        <td id="dom_t4"></td>
+                        <td id="seg_t4" class="celula" contenteditable="false"></td>
+                        <td id="ter_t4" class="celula" contenteditable="false"></td>
+                        <td id="qua_t4" class="celula" contenteditable="false"></td>
+                        <td id="qui_t4" class="celula" contenteditable="false"></td>
+                        <td id="sex_t4" class="celula" contenteditable="false"></td>
+                        <td id="sab_t4" class="celula" contenteditable="false"></td>
+                        <td id="dom_t4" class="celula" contenteditable="false"></td>
                     </tr>
                     <tr id="t5">
                         <th id="tempo">T5 <span class="tempo_do_tempo">(16:10 - 17:00)</span></th>
         
-                        <td id="seg_t5"></td>
-                        <td id="ter_t5"></td>
-                        <td id="qua_t5"></td>
-                        <td id="qui_t5"></td>
-                        <td id="sex_t5"></td>
-                        <td id="sab_t5"></td>
-                        <td id="dom_t5"></td>
+                        <td id="seg_t5" class="celula" contenteditable="false"></td>
+                        <td id="ter_t5" class="celula" contenteditable="false"></td>
+                        <td id="qua_t5" class="celula" contenteditable="false"></td>
+                        <td id="qui_t5" class="celula" contenteditable="false"></td>
+                        <td id="sex_t5" class="celula" contenteditable="false"></td>
+                        <td id="sab_t5" class="celula" contenteditable="false"></td>
+                        <td id="dom_t5" class="celula" contenteditable="false"></td>
                     </tr>
                     <tr id="t6">
                         <th id="tempo">T6 <span class="tempo_do_tempo">(17:00 - 17:50)</span></th>
         
-                        <td id="seg_t6"></td>
-                        <td id="ter_t6"></td>
-                        <td id="qua_t6"></td>
-                        <td id="qui_t6"></td>
-                        <td id="sex_t6"></td>
-                        <td id="sab_t6"></td>
-                        <td id="dom_t6"></td>
+                        <td id="seg_t6" class="celula" contenteditable="false"></td>
+                        <td id="ter_t6" class="celula" contenteditable="false"></td>
+                        <td id="qua_t6" class="celula" contenteditable="false"></td>
+                        <td id="qui_t6" class="celula" contenteditable="false"></td>
+                        <td id="sex_t6" class="celula" contenteditable="false"></td>
+                        <td id="sab_t6" class="celula" contenteditable="false"></td>
+                        <td id="dom_t6" class="celula" contenteditable="false"></td>
                     </tr>
                     <tr id="n1">
                         <th id="tempo">N1 <span class="tempo_do_tempo">(18:00 - 18:45)</span></th>
         
-                        <td id="seg_n1"></td>
-                        <td id="ter_n1"></td>
-                        <td id="qua_n1"></td>
-                        <td id="qui_n1"></td>
-                        <td id="sex_n1"></td>
-                        <td id="sab_n1"></td>
-                        <td id="dom_n1"></td>
+                        <td id="seg_n1" class="celula" contenteditable="false"></td>
+                        <td id="ter_n1" class="celula" contenteditable="false"></td>
+                        <td id="qua_n1" class="celula" contenteditable="false"></td>
+                        <td id="qui_n1" class="celula" contenteditable="false"></td>
+                        <td id="sex_n1" class="celula" contenteditable="false"></td>
+                        <td id="sab_n1" class="celula" contenteditable="false"></td>
+                        <td id="dom_n1" class="celula" contenteditable="false"></td>
                     </tr>
                     <tr id="n2">
                         <th id="tempo">N2 <span class="tempo_do_tempo">(18:45 - 19:30)</span></th>
         
-                        <td id="seg_n2"></td>
-                        <td id="ter_n2"></td>
-                        <td id="qua_n2"></td>
-                        <td id="qui_n2"></td>
-                        <td id="sex_n2"></td>
-                        <td id="sab_n2"></td>
-                        <td id="dom_n2"></td>
+                        <td id="seg_n2" class="celula" contenteditable="false"></td>
+                        <td id="ter_n2" class="celula" contenteditable="false"></td>
+                        <td id="qua_n2" class="celula" contenteditable="false"></td>
+                        <td id="qui_n2" class="celula" contenteditable="false"></td>
+                        <td id="sex_n2" class="celula" contenteditable="false"></td>
+                        <td id="sab_n2" class="celula" contenteditable="false"></td>
+                        <td id="dom_n2" class="celula" contenteditable="false"></td>
                     </tr>
                     <tr id="n3">
                         <th id="tempo">N3 <span class="tempo_do_tempo">(19:35 - 20:20)</span></th>
         
-                        <td id="seg_n3"></td>
-                        <td id="ter_n3"></td>
-                        <td id="qua_n3"></td>
-                        <td id="qui_n3"></td>
-                        <td id="sex_n3"></td>
-                        <td id="sab_n3"></td>
-                        <td id="dom_n3"></td>
+                        <td id="seg_n3" class="celula" contenteditable="false"></td>
+                        <td id="ter_n3" class="celula" contenteditable="false"></td>
+                        <td id="qua_n3" class="celula" contenteditable="false"></td>
+                        <td id="qui_n3" class="celula" contenteditable="false"></td>
+                        <td id="sex_n3" class="celula" contenteditable="false"></td>
+                        <td id="sab_n3" class="celula" contenteditable="false"></td>
+                        <td id="dom_n3" class="celula" contenteditable="false"></td>
                     </tr>
                     <tr id="n4">
                         <th id="tempo">N4 <span class="tempo_do_tempo">(20:20 - 21:05)</span></th>
         
-                        <td id="seg_n4"></td>
-                        <td id="ter_n4"></td>
-                        <td id="qua_n4"></td>
-                        <td id="qui_n4"></td>
-                        <td id="sex_n4"></td>
-                        <td id="sab_n4"></td>
-                        <td id="dom_n4"></td>
+                        <td id="seg_n4" class="celula" contenteditable="false"></td>
+                        <td id="ter_n4" class="celula" contenteditable="false"></td>
+                        <td id="qua_n4" class="celula" contenteditable="false"></td>
+                        <td id="qui_n4" class="celula" contenteditable="false"></td>
+                        <td id="sex_n4" class="celula" contenteditable="false"></td>
+                        <td id="sab_n4" class="celula" contenteditable="false"></td>
+                        <td id="dom_n4" class="celula" contenteditable="false"></td>
                     </tr>
                     <tr id="n5">
                         <th id="tempo">N5 <span class="tempo_do_tempo">(21:10 - 21:55)</span></th>
         
-                        <td id="seg_n5"></td>
-                        <td id="ter_n5"></td>
-                        <td id="qua_n5"></td>
-                        <td id="qui_n5"></td>
-                        <td id="sex_n5"></td>
-                        <td id="sab_n5"></td>
-                        <td id="dom_n5"></td>
+                        <td id="seg_n5" class="celula" contenteditable="false"></td>
+                        <td id="ter_n5" class="celula" contenteditable="false"></td>
+                        <td id="qua_n5" class="celula" contenteditable="false"></td>
+                        <td id="qui_n5" class="celula" contenteditable="false"></td>
+                        <td id="sex_n5" class="celula" contenteditable="false"></td>
+                        <td id="sab_n5" class="celula" contenteditable="false"></td>
+                        <td id="dom_n5" class="celula" contenteditable="false"></td>
                     </tr>
                     <tr id="n6">
                         <th id="tempo">N6 <span class="tempo_do_tempo">(21:55 - 22:40)</span></th>
         
-                        <td id="seg_n6"></td>
-                        <td id="ter_n6"></td>
-                        <td id="qua_n6"></td>
-                        <td id="qui_n6"></td>
-                        <td id="sex_n6"></td>
-                        <td id="sab_n6"></td>
-                        <td id="dom_n6"></td>
+                        <td id="seg_n6" class="celula" contenteditable="false"></td>
+                        <td id="ter_n6" class="celula" contenteditable="false"></td>
+                        <td id="qua_n6" class="celula" contenteditable="false"></td>
+                        <td id="qui_n6" class="celula" contenteditable="false"></td>
+                        <td id="sex_n6" class="celula" contenteditable="false"></td>
+                        <td id="sab_n6" class="celula" contenteditable="false"></td>
+                        <td id="dom_n6" class="celula" contenteditable="false"></td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </main>
     <footer>
-            <button>APERTA</button>
-            <a href="tabela.html" download="tabela.html">
-                <button id="salvar">Salvar</></button>
+            <button type="button" class="botao_fundo">APERTA</button>
+            <a onclick="save_tabela()">
+                <button id="salvar" class="botao_fundo">Salvar</button>
             </a>
     </footer>
+    <script>
+        function save_tabela() {
+            let arquivo = new window.Blob(["<!DOCTYPE html>" + document.documentElement.innerHTML], {type: "text/html"});
+            let url = window.webkitURL || window.URL;
+
+            let download = url.createObjectURL(arquivo);
+
+            var a = document.createElement("a");
+            a.download = "tabela.html";
+            a.href = download;
+
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+        function startEdit() {
+            document.getElementById("editor").innerHTML = "&#10060;";
+            document.getElementById("editor").setAttribute("onclick", "stopEdit()");
+            Array.from(document.getElementsByClassName("celula")).forEach(element => {
+                element.contentEditable = "true";
+            });
+        }
+        function stopEdit() {
+            document.getElementById("editor").innerHTML = "&#9999;";
+            document.getElementById("editor").setAttribute("onclick", "startEdit()");
+            Array.from(document.getElementsByClassName("celula")).forEach(element => {
+                element.contentEditable = "false";
+            })
+        }
+    </script>
 </body>
 </html>
